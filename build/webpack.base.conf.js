@@ -1,6 +1,6 @@
 const path = require('path')
 const webpack = require('webpack')
-// const fs = require('fs')
+const fs = require('fs')
 
 
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
@@ -16,8 +16,8 @@ const PATHS = {
 
 // Pages const for HtmlWebpackPlugin
 // see more: https://github.com/vedees/webpack-template/blob/master/README.md#html-dir-folder
-// const PAGES_DIR = PATHS.src
-// const PAGES = fs.readdirSync(PAGES_DIR).filter(fileName => fileName.endsWith('.html'))
+const PAGES_DIR = `${PATHS.src}/html`
+const PAGES = fs.readdirSync(PAGES_DIR).filter(fileName => fileName.endsWith('.html'))
 
 module.exports = {
     externals: {
