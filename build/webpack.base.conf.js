@@ -13,7 +13,6 @@ const PATHS = {
 };
 
 // Pages const for HtmlWebpackPlugin
-// see more: https://github.com/vedees/webpack-template/blob/master/README.md#html-dir-folder
 const PAGES_DIR = PATHS.src;
 const PAGES = fs.readdirSync(PAGES_DIR).filter(fileName => fileName.endsWith('.html'))
 
@@ -62,7 +61,6 @@ module.exports = {
               name: "[name].[ext]",
               outputPath: "./assets/img",
               useRelativePath: true
-              // outputPath: './assets/img' тут норм, теперь кидает куда надо
             }
           },
           {
@@ -72,7 +70,6 @@ module.exports = {
                 progressive: true,
                 quality: 65
               },
-              // optipng.enabled: false will disable optipng
               optipng: {
                 enabled: false
               },
@@ -83,7 +80,6 @@ module.exports = {
               gifsicle: {
                 interlaced: false
               },
-              // the webp option will enable WEBP
               webp: {
                 quality: 75
               }
@@ -159,15 +155,11 @@ module.exports = {
         to: `${PATHS.assets}img`
       }
     ]),
-    // Automatic creation any html pages (Don't forget to RERUN dev server)
-    // see more: https://github.com/vedees/webpack-template/blob/master/README.md#create-another-html-files
-    // best way to create pages: https://github.com/vedees/webpack-template/blob/master/README.md#third-method-best
     ...PAGES.map(
       page =>
         new HtmlWebpackPlugin({
           template: `${PAGES_DIR}/${page}`,
           filename: `./${page}`
-          // filename: `./${page}` возможно ставить это, если не .pug
         })
     )
   ]
