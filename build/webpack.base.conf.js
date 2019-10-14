@@ -157,10 +157,6 @@ module.exports = {
       {
         from: `${PATHS.src}/assets/img`,
         to: `${PATHS.assets}img`
-      },
-      {
-        from: `${PATHS.src}/static`,
-        to: ""
       }
     ]),
     // Automatic creation any html pages (Don't forget to RERUN dev server)
